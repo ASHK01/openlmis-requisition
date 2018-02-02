@@ -66,9 +66,4 @@ public class BasicRequisitionTemplateDto extends BaseRequisitionTemplateDto
 
     return requisitionTemplateDto;
   }
-
-  @Override
-  public void setProgramId(UUID programId) {
-    // not supported operation
-  }
 }
