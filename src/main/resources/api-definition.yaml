@@ -1013,7 +1013,7 @@ resourceTypes:
       /search:
           get:
               is: [ secured ]
-              description: Find requisition requisitionTemplateAssignment with matched parameters.
+              description: Find requisitionTemplateAssignment with matched parameters.
               queryParameters:
                   program:
                       displayName: program ID
@@ -1026,7 +1026,7 @@ resourceTypes:
                       required: false
                       repeat: false
                   template:
-                      displayName: requisitionTemplate ID
+                      displayName: requisition template ID
                       type: string
                       required: false
                       repeat: false
