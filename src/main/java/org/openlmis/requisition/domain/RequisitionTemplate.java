@@ -55,11 +55,6 @@ public class RequisitionTemplate extends BaseTimestampedEntity {
 
   @Getter
   @Setter
-  @Type(type = UUID_TYPE)
-  private UUID programId;
-
-  @Getter
-  @Setter
   private Integer numberOfPeriodsToAverage;
 
   @Getter
@@ -219,7 +214,6 @@ public class RequisitionTemplate extends BaseTimestampedEntity {
    * @param requisitionTemplate RequisitionTemplate with new values.
    */
   public void updateFrom(RequisitionTemplate requisitionTemplate) {
-    this.programId = requisitionTemplate.getProgramId();
     this.numberOfPeriodsToAverage = requisitionTemplate.getNumberOfPeriodsToAverage();
     this.columnsMap = requisitionTemplate.getColumnsMap();
   }
@@ -306,7 +300,6 @@ public class RequisitionTemplate extends BaseTimestampedEntity {
     requisitionTemplate.setId(importer.getId());
     requisitionTemplate.setCreatedDate(importer.getCreatedDate());
     requisitionTemplate.setModifiedDate(importer.getModifiedDate());
-    requisitionTemplate.setProgramId(importer.getProgramId());
     requisitionTemplate.setPopulateStockOnHandFromStockCards(
         importer.isPopulateStockOnHandFromStockCards());
     requisitionTemplate.setNumberOfPeriodsToAverage(importer.getNumberOfPeriodsToAverage());
@@ -330,7 +323,6 @@ public class RequisitionTemplate extends BaseTimestampedEntity {
     exporter.setId(id);
     exporter.setCreatedDate(getCreatedDate());
     exporter.setModifiedDate(getModifiedDate());
-    exporter.setProgramId(programId);
     exporter.setPopulateStockOnHandFromStockCards(populateStockOnHandFromStockCards);
     exporter.setNumberOfPeriodsToAverage(numberOfPeriodsToAverage);
   }
@@ -341,8 +333,6 @@ public class RequisitionTemplate extends BaseTimestampedEntity {
     ZonedDateTime getCreatedDate();
 
     ZonedDateTime getModifiedDate();
-
-    UUID getProgramId();
 
     boolean isPopulateStockOnHandFromStockCards();
 
@@ -357,8 +347,6 @@ public class RequisitionTemplate extends BaseTimestampedEntity {
     void setCreatedDate(ZonedDateTime createdDate);
 
     void setModifiedDate(ZonedDateTime modifiedDate);
-
-    void setProgramId(UUID programId);
 
     void setPopulateStockOnHandFromStockCards(boolean populateStockOnHandFromStockCards);
 
