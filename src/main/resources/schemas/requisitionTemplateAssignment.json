@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "title": "RequisitionTemplateAssignment",
+  "description": "A single requisitionTemplateAssignment.",
+  "properties": {
+    "templateId": {
+      "type": "string",
+      "title": "templateId"
+    },
+    "facilityTypeId": {
+      "type": "string",
+      "title": "facilityTypeId"
+    },
+    "programId": {
+      "type": "string",
+      "title": "programId"
+    }
+  },
+  "required": [
+    "templateId",
+    "facilityTypeId",
+    "programId"
+  ]
+}

@@ -140,6 +140,14 @@ schemas:
           "items": { "type": "object", "$ref": "schemas/statusMessage.json" }
       }
 
+  - requisitionTemplateAssignment: !include schemas/requisitionTemplateAssignment.json
+
+  - requisitionTemplateAssignmentArray: |
+      {
+          "type": "array",
+          "items": { "type": "object", "$ref": "schemas/requisitionTemplateAssignment.json" }
+      }
+
 traits:
     - secured:
           queryParameters:
@@ -911,6 +919,122 @@ resourceTypes:
                       body:
                         application/json:
                             schema: requisitionTemplate
+                  "403":
+                      body:
+                        application/json:
+                            schema: localizedMessage
+                  "404":
+                  "500":
+
+  /requisitionTemplateAssignments:
+      displayName: Requisition Template Assignment
+      get:
+          is: [ secured ]
+          description: Get all requisitionTemplateAssignments.
+          responses:
+              "200":
+                  body:
+                    application/json:
+                        schema: requisitionTemplateAssignmentsArray
+              "404":
+      post:
+          is: [ secured ]
+          description: Creates new requisitionTemplateAssignment.
+          body:
+              application/json:
+                schema: requisitionTemplateAssignment
+          responses:
+              "201":
+                  body:
+                    application/json:
+                        schema: requisitionTemplateAssignment
+              "400":
+                  body:
+                    application/json:
+              "403":
+                  body:
+                    application/json:
+                        schema: localizedMessage
+      /{id}:
+          uriParameters:
+              id:
+                  displayName: id
+                  type: string
+                  required: true
+                  repeat: false
+          delete:
+              is: [ secured ]
+              description: Delete chosen requisitionTemplateAssignment.
+              responses:
+                  "204":
+                  "400":
+                      body:
+                        application/json:
+                            schema: localizedMessage
+                  "403":
+                      body:
+                        application/json:
+                            schema: localizedMessage
+                  "404":
+                      body:
+                        application/json:
+                            schema: localizedMessage
+                  "409":
+          get:
+              is: [ secured ]
+              description: Get chosen requisitionTemplateAssignment.
+              responses:
+                  "200":
+                      body:
+                        application/json:
+                            schema: requisitionTemplateAssignment
+                  "404":
+                      body:
+                        application/json:
+                            schema: localizedMessage
+          put:
+              is: [ secured ]
+              description: Update existing requisitionTemplateAssignment.
+              body:
+                  application/json:
+                    schema: requisitionTemplateAssignment
+              responses:
+                  "200":
+                      body:
+                        application/json:
+                            schema: requisitionTemplateAssignment
+                  "400":
+                      body:
+                        application/json:
+                  "403":
+                      body:
+                        application/json:
+                            schema: localizedMessage
+      /search:
+          get:
+              is: [ secured ]
+              description: Find requisition requisitionTemplateAssignment with matched parameters.
+              queryParameters:
+                  program:
+                      displayName: program ID
+                      type: string
+                      required: false
+                      repeat: false
+                  facilityType:
+                      displayName: facility type ID
+                      type: string
+                      required: false
+                      repeat: false
+                  template:
+                      displayName: requisitionTemplate ID
+                      type: string
+                      required: false
+                      repeat: false
+              responses:
+                  "200":
+                      body:
+                        application/json:
+                            schema: requisitionTemplateAssignment
                   "403":
                       body:
                         application/json:

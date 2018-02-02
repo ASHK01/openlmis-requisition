@@ -16,10 +16,6 @@
       "type": ["string", "null"],
       "title": "modifiedDate"
     },
-    "programId": {
-      "type": ["string", "null"],
-      "title": "programId"
-    },
     "numberOfPeriodsToAverage": {
       "type": ["number", "null"],
       "title": "numberOfPeriodsToAverage"
