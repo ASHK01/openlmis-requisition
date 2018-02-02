@@ -4,22 +4,30 @@
   "title": "RequisitionTemplateAssignment",
   "description": "A single requisitionTemplateAssignment.",
   "properties": {
-    "templateId": {
+    "id": {
       "type": "string",
-      "title": "templateId"
+      "title": "id"
     },
-    "facilityTypeId": {
-      "type": "string",
-      "title": "facilityTypeId"
+    "template": {
+      "type": "object",
+      "$ref": "referenceObjectDto.json",
+      "title": "template"
     },
-    "programId": {
-      "type": "string",
-      "title": "programId"
+    "facilityType": {
+      "type": "object",
+      "$ref": "referenceObjectDto.json",
+      "title": "facilityType"
+    },
+    "program": {
+      "type": "object",
+      "$ref": "referenceObjectDto.json",
+      "title": "program"
     }
   },
   "required": [
-    "templateId",
-    "facilityTypeId",
-    "programId"
+    "id",
+    "template",
+    "facilityType",
+    "program"
   ]
 }
