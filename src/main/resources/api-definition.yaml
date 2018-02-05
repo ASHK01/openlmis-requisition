@@ -140,8 +140,6 @@ schemas:
           "items": { "type": "object", "$ref": "schemas/statusMessage.json" }
       }
 
-  - requisitionTemplateAssignment: !include schemas/requisitionTemplateAssignment.json
-
   - requisitionTemplateAssignmentArray: |
       {
           "type": "array",
