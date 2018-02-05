@@ -20,12 +20,17 @@ import static org.openlmis.requisition.i18n.MessageKeys.ERROR_COLUMN_NOT_IN_TEMP
 import static org.openlmis.requisition.i18n.MessageKeys.ERROR_OPTION_NOT_AVAILABLE_FOR_THIS_COLUMN;
 import static org.openlmis.requisition.i18n.MessageKeys.ERROR_SOURCE_NOT_AVAILABLE_FOR_THIS_COLUMN;
 
+import java.util.HashSet;
+import java.util.Set;
+import javax.persistence.CascadeType;
+import javax.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.Type;
+import org.javers.core.metamodel.annotation.DiffIgnore;
 import org.openlmis.requisition.exception.ValidationMessageException;
 import org.openlmis.requisition.utils.Message;
 import java.time.ZonedDateTime;
@@ -70,6 +75,12 @@ public class RequisitionTemplate extends BaseTimestampedEntity {
       name = "columns_maps",
       joinColumns = @JoinColumn(name = "requisitionTemplateId"))
   private Map<String, RequisitionTemplateColumn> columnsMap = new HashMap<>();
+
+  @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+  @DiffIgnore
+  @Getter
+  @Setter
+  private Set<RequisitionTemplateAssignment> templateAssignments = new HashSet<>();
 
   /**
    * Allows creating requisition template with predefined columns.

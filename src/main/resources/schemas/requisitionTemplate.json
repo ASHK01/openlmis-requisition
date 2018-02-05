@@ -24,6 +24,15 @@
       "type": "object",
       "$ref": "requisitionTemplateColumnsMap.json",
       "title": "columnsMap"
+    },
+    "templateAssignments": {
+      "type": "array",
+      "title": "requisitionTemplate",
+      "items": {
+        "type": "object",
+        "$ref": "requisitionTemplateAssignment.json"
+      },
+      "uniqueItems": false
     }
   }
 }

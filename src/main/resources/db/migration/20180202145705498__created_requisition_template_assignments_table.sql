@@ -1,7 +1,7 @@
 CREATE TABLE requisition_template_assignments (
     id UUID PRIMARY KEY NOT NULL,
     programid uuid NOT NULL,
-    facilitytypeid uuid NOT NULL,
+    facilitytypeid uuid,
     templateid uuid NOT NULL
 );
 

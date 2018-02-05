@@ -35,10 +35,10 @@ public class RequisitionTemplateAssignment extends BaseEntity {
   @Type(type = UUID_TYPE)
   private UUID programId;
 
-  @Column(nullable = false)
+  @Column
   @Type(type = UUID_TYPE)
   private UUID facilityTypeId;
 
   @Column(nullable = false)
-  private UUID templateId;
+  private RequisitionTemplate template;
 }
