@@ -25,14 +25,18 @@
       "$ref": "requisitionTemplateColumnsMap.json",
       "title": "columnsMap"
     },
-    "templateAssignments": {
+    "program": {
+      "type": "object",
+      "$ref": "referenceObjectDto.json",
+      "title": "program"
+    },
+    "facilityTypes": {
       "type": "array",
-      "title": "requisitionTemplate",
+      "title": "facilityTypes",
       "items": {
         "type": "object",
-        "$ref": "requisitionTemplateAssignment.json"
-      },
-      "uniqueItems": false
+        "$ref": "referenceObjectDto.json"
+      }
     }
   }
 }

@@ -8,11 +8,6 @@
       "type": "string",
       "title": "id"
     },
-    "template": {
-      "type": "object",
-      "$ref": "referenceObjectDto.json",
-      "title": "template"
-    },
     "facilityType": {
       "type": "object",
       "$ref": "referenceObjectDto.json",

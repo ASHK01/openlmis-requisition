@@ -901,15 +901,3 @@ resourceTypes:
                       body:
                         application/json:
                             schema: localizedMessage
-          /assignments:
-              is: [ secured ]
-              description: Return information about template's assignments.
-              responses:
-                  "200":
-                      body:
-                        application/json:
-                            schema: requisitionTemplateAssignmentArray
-                  "404":
-                      body:
-                        application/json:
-                            schema: localizedMessage
