@@ -25,7 +25,7 @@ PORT=`echo ${DATABASE_URL} | sed -E 's/^.*\:([0-9]+)\/.*$/\1/'` # :<port>/
 
 DB=`echo ${DATABASE_URL} | sed -E 's/^.*\/(.+)\?*$/\1/'` # /<db>?
 : "${DB:?DB not set}"
-
+echo "here"
 # pgpassfile makes it easy and safe to login
 echo "${HOST}:${PORT}:${DB}:${POSTGRES_USER}:${POSTGRES_PASSWORD}" > pgpassfile
 chmod 600 pgpassfile

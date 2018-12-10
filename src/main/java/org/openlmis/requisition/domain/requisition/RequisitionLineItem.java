@@ -196,6 +196,10 @@ public class RequisitionLineItem extends BaseEntity {
   @Setter
   @Getter
   private Integer averageConsumption;
+  
+  @Setter
+  @Getter
+  private BigDecimal mos;
 
   @Getter
   @Setter
@@ -435,6 +439,11 @@ public class RequisitionLineItem extends BaseEntity {
     exporter.setIdealStockAmount(idealStockAmount);
     exporter.setCalculatedOrderQuantityIsa(calculatedOrderQuantityIsa);
     exporter.setAdditionalQuantityRequired(additionalQuantityRequired);
+    if(mos == null) {
+        exporter.setMos(new BigDecimal("11.1"));
+    } else {
+       exporter.setMos(mos);
+    }
   }
 
   private void exportStockAdjustments(Exporter exporter) {
@@ -558,6 +567,21 @@ public class RequisitionLineItem extends BaseEntity {
             ? getSumOfAdditionalQuantitiesFromPreviousLineItems(previousRequisitions) : null));
   }
 
+  /**
+   * Sets value to
+   */
+ public void calculateAndSetStockBasedMos() {
+        if (stockOnHand == null || averageConsumption == null || stockOnHand == 0 || averageConsumption == 0) {
+            mos = new BigDecimal("0.0");
+        } else {
+            mos = new BigDecimal(
+                    stockOnHand.doubleValue() / averageConsumption.doubleValue()
+                    ).setScale(1, BigDecimal.ROUND_HALF_UP);
+
+        }
+        setMos(mos);
+    }
+    
   /**
    * Recalculates packs to ship.
    *
@@ -796,6 +820,8 @@ public class RequisitionLineItem extends BaseEntity {
     void setCalculatedOrderQuantityIsa(Integer calculatedOrderQuantityIsa);
 
     void setAdditionalQuantityRequired(Integer additionalQuantityRequired);
+    
+    void setMos(BigDecimal mos);
   }
 
   public interface Importer {

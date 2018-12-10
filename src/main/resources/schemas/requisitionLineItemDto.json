@@ -29,6 +29,10 @@
       "type": "integer",
       "title": "stockOnHand"
     },
+    "mos": {
+      "type": "double",
+      "title": "mos"
+    },
     "requestedQuantity": {
       "type": "integer",
       "title": "requestedQuantity"

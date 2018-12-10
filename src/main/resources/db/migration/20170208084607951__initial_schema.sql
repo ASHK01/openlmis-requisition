@@ -116,6 +116,7 @@ CREATE TABLE requisition_line_items (
     nonfullsupply boolean NOT NULL,
     numberofnewpatientsadded integer,
     orderableid uuid,
+    mos numeric(19,1),
     packstoship bigint,
     priceperpack numeric(19,2),
     remarks character varying(250),

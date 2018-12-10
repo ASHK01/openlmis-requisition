@@ -65,6 +65,7 @@ public class RequisitionLineItemDto extends BaseDto
   private Integer adjustedConsumption;
   private List<Integer> previousAdjustedConsumptions;
   private Integer averageConsumption;
+  private BigDecimal mos;
   private BigDecimal maxPeriodsOfStock;
   private Integer maximumStockQuantity;
   private Integer calculatedOrderQuantity;
@@ -100,4 +101,5 @@ public class RequisitionLineItemDto extends BaseDto
   public boolean supportsPreviousAdjustedConsumptions() {
     return true;
   }
+
 }

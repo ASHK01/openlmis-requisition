@@ -122,7 +122,7 @@ public class RequisitionController extends BaseRequisitionController {
       @RequestParam(value = "emergency") boolean emergency,
       HttpServletRequest request,
       HttpServletResponse response) {
-
+  System.out.println("initiate");
     Profiler profiler = getProfiler(
         "POST_REQUISITION_INITIATE",
         programId, facilityId, suggestedPeriod, emergency
@@ -195,6 +195,7 @@ public class RequisitionController extends BaseRequisitionController {
       @RequestParam(value = "programId") UUID programId,
       @RequestParam(value = "facilityId") UUID facilityId,
       @RequestParam(value = "emergency") boolean emergency) {
+    System.out.println("periodsForInitiate");
     Profiler profiler = getProfiler("GET_PERIODS_FOR_INITIATE_REQUISITION", programId,
         facilityId, emergency);
 
@@ -364,8 +365,12 @@ public class RequisitionController extends BaseRequisitionController {
   @ResponseBody
   public RequisitionDto getRequisition(@PathVariable("id") UUID requisitionId,
                                        HttpServletResponse response) {
-    Profiler profiler = getProfiler("GET_REQUISITION", requisitionId);
+  System.out.println("initiate");
+  Profiler profiler = getProfiler("GET_REQUISITION", requisitionId);
     Requisition requisition = findRequisition(requisitionId, profiler);
+    logger.info("aamir->");
+    logger.error("aamir1->");
+    
     checkPermission(profiler, () -> permissionService.canViewRequisition(requisition));
     RequisitionDto requisitionDto = buildDto(
         profiler, requisition,
