@@ -1,3 +1,10 @@
+start requisition up
+* cd /home/aamir/code-base/openlmis-requisition
+* sudo docker-compose run --service-ports requisition
+* gradle build -x test
+* gradle build -x checkstyleMain
+* gradle bootRun
+
 # OpenLMIS Requisition Service
 This repository holds the files for the OpenLMIS Requisition Independent Service.
 
